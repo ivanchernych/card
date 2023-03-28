@@ -4,9 +4,19 @@ app = flask.Flask(__name__)
 
 
 @app.route('/')
-@app.route('/index/<title>')
-def training(title):
-    return flask.render_template('base.html', title=title)
+@app.route('/auto_answer')
+def auto_answer():
+    param = {
+        'title': 'Анкета',
+        'surname': 'Watny',
+        'name': 'Mark',
+        'education': 'выше среднего',
+        'profession': 'штурман марсохода',
+        'sex': 'male',
+        'motivation': 'Всегда мечтал застрять на Марсе!',
+        'ready': 'True'
+    }
+    return flask.render_template('auto_answer.html', **param)
 
 
 if __name__ == '__main__':
